@@ -8,26 +8,54 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 
+const events = [];
+
 app.use(
   '/graphql',
   graphqlHTTP({
     schema: buildSchema(`
+        type Event {
+            _id: ID!
+            title: String!
+            description: String!
+            price: Float!
+            date: String!
+        }
+
+        input EventInput {
+            title: String!
+            description: String!
+            price: Float!
+            date: String!
+        }
+
         type RootQuery {
-            events: [String!]!
+            events: [Event!]!
         }
 
         type RootMutation {
-            createEvent(name: String): String
+            createEvent(eventInput: EventInput!): Event!
         }
 
         schema {
-            query: RootQuery,
+            query: RootQuery
             mutation: RootMutation
         }
     `),
     rootValue: {
-      events: () => ['Cooking', 'Fishing', 'All-night coding'],
-      createEvent: args => args.name,
+      events: () => events,
+      createEvent: (args) => {
+        const event = {
+          _id: Math.random().toString(),
+          title: args.eventInput.title,
+          description: args.eventInput.description,
+          price: +args.eventInput.price,
+          date: args.eventInput.date,
+        };
+
+        events.push(event);
+        return event;
+      },
     },
     graphiql: true,
   }),
