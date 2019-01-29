@@ -1,0 +1,44 @@
+{
+    "name": "event-booking-server",
+    "version": "1.0.0",
+    "description": "An event booking server using express-graphql",
+    "main": "./bin/www",
+    "scripts": {
+        "start": "node ./bin/www",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "serve": "nodemon ./bin/www"
+    },
+    "dependencies": {
+        "debug": "~2.6.9",
+        "express": "^4.16.4",
+        "express-graphql": "^0.7.1",
+        "graphql": "^14.1.1",
+        "morgan": "~1.9.0"
+    },
+    "devDependencies": {
+        "eslint": "^5.12.1",
+        "eslint-config-airbnb-base": "^13.1.0",
+        "eslint-plugin-import": "^2.15.0",
+        "nodemon": "^1.18.9"
+    },
+    "homepage": "https://github.com/MUFYAheer/event-booking-server",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MUFYAheer/event-booking-server.git"
+    },
+    "bugs": {
+        "url": "https://github.com/MUFYAheer/event-booking-server/issues"
+    },
+    "keywords": [
+        "graphql",
+        "api",
+        "event-booking",
+        "server"
+    ],
+    "author": {
+        "name": "Muhammad Umer Farooq",
+        "email": "mufy.aheer@gmail.com",
+        "url": "https://github.com/MUFYAheer"
+    },
+    "license": "MIT"
+}
