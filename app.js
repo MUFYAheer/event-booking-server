@@ -2,13 +2,21 @@ const express = require('express');
 const logger = require('morgan');
 const graphqlHTTP = require('express-graphql');
 const { buildSchema } = require('graphql');
+const { connect } = require('mongoose');
+
+const Event = require('./models/Event');
+
+connect(
+  process.env.MONGODB_URL,
+  { useNewUrlParser: true },
+)
+  .then(() => console.log('Connected...'))
+  .catch(error => console.error(error));
 
 const app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
-
-const events = [];
 
 app.use(
   '/graphql',
@@ -43,18 +51,19 @@ app.use(
         }
     `),
     rootValue: {
-      events: () => events,
-      createEvent: (args) => {
-        const event = {
-          _id: Math.random().toString(),
+      events: async () => {
+        const events = await Event.find();
+        return events.map(event => ({ ...event._doc, _id: event.id }));
+      },
+      createEvent: async (args) => {
+        const event = await Event.create({
           title: args.eventInput.title,
           description: args.eventInput.description,
           price: +args.eventInput.price,
-          date: args.eventInput.date,
-        };
+          date: new Date(args.eventInput.date),
+        });
 
-        events.push(event);
-        return event;
+        return { ...event._doc, _id: event.id };
       },
     },
     graphiql: true,

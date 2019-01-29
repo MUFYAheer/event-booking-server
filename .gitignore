@@ -57,5 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# nodemon environment variables file
+nodemon.json
+
 # next.js build output
 .next
