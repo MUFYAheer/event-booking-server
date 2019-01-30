@@ -2,8 +2,14 @@ const { Schema, model } = require('mongoose');
 
 const bookingSchema = new Schema(
   {
-    event: Schema.Types.ObjectId,
-    user: Schema.Types.ObjectId,
+    event: {
+      type: Schema.Types.ObjectId,
+      ref: 'Event',
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
   },
   { timestamps: true },
 );
