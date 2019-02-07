@@ -1,6 +1,6 @@
 const { events, createEvent } = require('./event');
 const { bookings, bookEvent, cancelBooking } = require('./booking');
-const { createUser } = require('./auth');
+const { createUser, login } = require('./auth');
 
 module.exports = {
   events,
@@ -9,4 +9,5 @@ module.exports = {
   bookEvent,
   cancelBooking,
   createUser,
+  login,
 };

@@ -11,7 +11,8 @@ exports.events = async () => {
     throw error;
   }
 };
-exports.createEvent = async (args) => {
+exports.createEvent = async (args, req) => {
+  if (!req.isAuth) throw new Error('Unauthorized');
   try {
     const event = await Event.create({
       title: args.eventInput.title,
