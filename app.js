@@ -1,6 +1,6 @@
 const express = require('express');
 const logger = require('morgan');
-const graphqlHTTP = require('express-graphql');
+const { graphqlHTTP } = require('express-graphql');
 
 const authMiddleware = require('./middlewares/authMiddleware');
 

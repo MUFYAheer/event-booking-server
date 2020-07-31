@@ -36,7 +36,7 @@ server.on('listening', onListening);
 
 connect(
   process.env.MONGODB_URL,
-  { useNewUrlParser: true },
+  { useNewUrlParser: true, useUnifiedTopology: true },
 )
   .then(db => debug(`Connected... ${db}`))
   .catch(error => debug(error));

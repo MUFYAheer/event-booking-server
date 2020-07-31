@@ -10,19 +10,19 @@
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",
-        "debug": "~2.6.9",
-        "express": "^4.16.4",
-        "express-graphql": "^0.7.1",
-        "graphql": "^14.1.1",
-        "jsonwebtoken": "^8.4.0",
-        "mongoose": "^5.4.7",
-        "morgan": "~1.9.0"
+        "debug": "~4.1.1",
+        "express": "^4.17.1",
+        "express-graphql": "^0.11.0",
+        "graphql": "^15.3.0",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.9.26",
+        "morgan": "~1.10.0"
     },
     "devDependencies": {
-        "eslint": "^5.12.1",
-        "eslint-config-airbnb-base": "^13.1.0",
-        "eslint-plugin-import": "^2.15.0",
-        "nodemon": "^1.18.9"
+        "eslint": "^7.5.0",
+        "eslint-config-airbnb-base": "^14.2.0",
+        "eslint-plugin-import": "^2.22.0",
+        "nodemon": "^2.0.4"
     },
     "homepage": "https://github.com/MUFYAheer/event-booking-server",
     "repository": {
